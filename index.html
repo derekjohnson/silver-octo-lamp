@@ -1,0 +1,83 @@
+<style>
+body {
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 100vw;
+}
+[type=checkbox] {
+  display: none;
+}
+label {
+  cursor: pointer;
+  background: black;
+  height: 50vw;
+  width: 50vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transform: rotateY(-32deg) rotateX(-68deg);
+}
+span:first-child::before,
+span:first-child::after {
+  content: "";
+  border: 14.5vw solid;
+  position: absolute;
+  left: 0;
+  width: 21vw;
+  height: 0;
+}
+span:first-child::before {
+  top: -14.5vw;
+}
+span:first-child::after {
+  bottom: -14.5vw;
+}
+:checked+label span:first-child,
+:checked~div span:first-child {
+  background: lightyellow;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
+}
+:checked+label span:first-child::before,
+:checked~div span:first-child::before {
+  border-color: black black lightyellow black;
+}
+:checked+label span:first-child::after,
+:checked~div span:first-child::after {
+  border-color: lightyellow black black black;
+}
+span:not(:first-child) {
+  position: relative;
+  z-index: 2;
+}
+div {
+  opacity: 0.7;
+  position: absolute;
+  left: 8vw;
+  bottom: 0;
+  width: 55vw;
+  height: 55vw;
+  transform: rotateX(-79deg) rotateZ(-30deg) translateX(10vw) translateZ(5vw) scale(1.1);
+}
+div span {
+  font-size: 5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+div span:first-child::before,
+div span:first-child::after {
+  border-width: 15.95vw;
+  width: 23.18vw;
+}
+</style>
+<input type="checkbox" id="silver"><label for="silver"><span></span><span>Ag</span></label>
+<div><span>Ag</span></div>
